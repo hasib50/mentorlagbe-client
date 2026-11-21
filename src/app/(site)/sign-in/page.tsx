@@ -8,6 +8,7 @@ import { Loader2 } from "lucide-react";
 import PageTitle from "@/components/ui/PageTitle";
 import AuthShell from "@/components/ui/AuthShell";
 import PasswordInput from "@/components/ui/PasswordInput";
+import GoogleButton from "@/components/ui/GoogleButton";
 import { authClient } from "@/lib/auth-client";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { safeRedirect } from "@/lib/utils";
@@ -61,6 +62,7 @@ function SignInForm() {
 
   return (
     <AuthShell title="Welcome back" subtitle="Sign in to continue to your MentorLagbe dashboard.">
+      <GoogleButton callbackURL={callback} />
       <form onSubmit={submit} noValidate className="space-y-5">
         <div>
           <label className="field-label" htmlFor="email">Email</label>
