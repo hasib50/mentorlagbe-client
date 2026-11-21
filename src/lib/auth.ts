@@ -16,7 +16,7 @@ export const auth = betterAuth({
     autoSignIn: true,
   },
 
-    socialProviders: {
+  socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
@@ -34,7 +34,17 @@ export const auth = betterAuth({
     },
   },
   session: { modelName: "sessions" },
-  account: { modelName: "accounts" },
+
+  // Allows Google sign-in for an email that already registered with a password.
+  // The project has no email verification, so local accounts stay "unverified".
+  account: {
+    modelName: "accounts",
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["google"],
+      requireLocalEmailVerified: false,
+    },
+  },
   verification: { modelName: "verifications" },
 
   databaseHooks: {
