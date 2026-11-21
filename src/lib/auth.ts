@@ -16,6 +16,13 @@ export const auth = betterAuth({
     autoSignIn: true,
   },
 
+    socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    },
+  },
+
   // BetterAuth stores its user documents in the "users" collection
   user: {
     modelName: "users",
