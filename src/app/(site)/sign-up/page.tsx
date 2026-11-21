@@ -8,6 +8,7 @@ import { GraduationCap, Loader2, Presentation } from "lucide-react";
 import PageTitle from "@/components/ui/PageTitle";
 import AuthShell from "@/components/ui/AuthShell";
 import PasswordInput from "@/components/ui/PasswordInput";
+import GoogleButton from "@/components/ui/GoogleButton";
 import { authClient } from "@/lib/auth-client";
 import { useCurrentUser } from "@/hooks/useCurrentUser";
 import { safeRedirect } from "@/lib/utils";
@@ -68,6 +69,7 @@ function SignUpForm() {
 
   return (
     <AuthShell title="Create your account" subtitle="Join MentorLagbe for free. It only takes a minute.">
+      <GoogleButton callbackURL={callback} />
       <form onSubmit={submit} noValidate className="space-y-5">
         <div>
           <span className="field-label">I want to join as</span>
