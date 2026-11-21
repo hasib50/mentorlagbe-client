@@ -1,0 +1,250 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: false;
+}
+
+/* ========================================================
+   MENTORLAGBE DESIGN SYSTEM
+   Ink navy + electric indigo + sun yellow + coral
+   Two daisyUI themes: "mentor" (light) and "mentor-dark"
+======================================================== */
+
+@plugin "daisyui/theme" {
+  name: "mentor";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #ffffff;
+  --color-base-200: #f5f4ff;
+  --color-base-300: #e3e0f6;
+  --color-base-content: #17153b;
+  --color-primary: #5b45ff;
+  --color-primary-content: #ffffff;
+  --color-secondary: #ff6a4d;
+  --color-secondary-content: #ffffff;
+  --color-accent: #ffc83d;
+  --color-accent-content: #17153b;
+  --color-neutral: #17153b;
+  --color-neutral-content: #eeedff;
+  --color-info: #2f80ed;
+  --color-info-content: #ffffff;
+  --color-success: #12a150;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #17153b;
+  --color-error: #e5484d;
+  --color-error-content: #ffffff;
+  --radius-selector: 9999px;
+  --radius-field: 0.9rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "mentor-dark";
+  default: false;
+  prefersdark: false;
+  color-scheme: dark;
+  --color-base-100: #14122e;
+  --color-base-200: #0e0c22;
+  --color-base-300: #2b2858;
+  --color-base-content: #ecebff;
+  --color-primary: #8272ff;
+  --color-primary-content: #0e0c22;
+  --color-secondary: #ff7f63;
+  --color-secondary-content: #0e0c22;
+  --color-accent: #ffc83d;
+  --color-accent-content: #17153b;
+  --color-neutral: #1d1b45;
+  --color-neutral-content: #eeedff;
+  --color-info: #5aa2ff;
+  --color-info-content: #0e0c22;
+  --color-success: #2fd27a;
+  --color-success-content: #0e0c22;
+  --color-warning: #ffb02e;
+  --color-warning-content: #0e0c22;
+  --color-error: #ff6b70;
+  --color-error-content: #0e0c22;
+  --radius-selector: 9999px;
+  --radius-field: 0.9rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-primary) 30%, transparent);
+}
+
+@layer components {
+  /* Page width used by every section */
+  .container-x {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 80rem;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-x { padding-inline: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .container-x { padding-inline: 2rem; }
+  }
+
+  /* One consistent heading style for every section */
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 1.5rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-secondary);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  .section-lead {
+    margin-top: 1rem;
+    max-width: 38rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: color-mix(in oklab, var(--color-base-content) 66%, transparent);
+  }
+
+  /* Yellow marker highlight behind a word */
+  .marker {
+    background-image: linear-gradient(
+      transparent 64%,
+      color-mix(in oklab, var(--color-accent) 90%, transparent) 64%
+    );
+    padding-inline: 0.1em;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--color-base-content) 16%, transparent) 1.2px,
+      transparent 1.2px
+    );
+    background-size: 22px 22px;
+  }
+
+  .gradient-brand {
+    background-image: linear-gradient(135deg, #5b45ff 0%, #7f5bff 55%, #ff6a4d 130%);
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(120deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .shadow-soft {
+    box-shadow: 0 14px 34px -14px color-mix(in oklab, var(--color-primary) 45%, transparent);
+  }
+
+  /* Cards */
+  .surface {
+    background: var(--color-base-100);
+    border: 1px solid var(--color-base-300);
+    border-radius: var(--radius-box);
+  }
+  .card-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklab, var(--color-primary) 40%, var(--color-base-300));
+    box-shadow: 0 22px 40px -22px color-mix(in oklab, var(--color-primary) 55%, transparent);
+  }
+
+  /* Pill buttons everywhere (same style as the home page) */
+  .btn:not(.btn-square):not(.btn-circle) {
+    border-radius: 9999px;
+    font-weight: 700;
+  }
+
+  /* Form fields */
+  .field-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .field-error {
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-error);
+  }
+  .input, .select, .textarea {
+    width: 100%;
+    background: var(--color-base-100);
+    border-color: var(--color-base-300);
+  }
+  .input:focus, .select:focus, .textarea:focus {
+    border-color: var(--color-primary);
+    outline: 2px solid color-mix(in oklab, var(--color-primary) 25%, transparent);
+    outline-offset: 0;
+  }
+}
+
+/* Tables inside dashboards */
+.table :where(th) {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+}
+
+/* Slim scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--color-base-content) 25%, transparent) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
