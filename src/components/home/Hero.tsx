@@ -31,8 +31,8 @@ export default function Hero() {
       <div className="pointer-events-none absolute -left-32 top-10 size-96 rounded-full bg-primary/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-0 size-96 rounded-full bg-accent/25 blur-3xl" />
 
-      <div className="container-x relative grid items-center gap-14 py-16 lg:grid-cols-2 lg:py-24">
-        <div>
+      <div className="container-x relative grid grid-cols-1 items-center gap-14 py-16 lg:grid-cols-2 lg:py-24">
+        <div className="min-w-0">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
