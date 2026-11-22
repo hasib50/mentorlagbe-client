@@ -104,6 +104,13 @@ h1, h2, h3, h4 {
   background: color-mix(in oklab, var(--color-primary) 30%, transparent);
 }
 
+@layer base {
+  /* Stop grid items from stretching the layout wider than small phone screens */
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @layer components {
   /* Page width used by every section */
   .container-x {
